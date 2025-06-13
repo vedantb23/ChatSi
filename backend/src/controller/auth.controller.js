@@ -125,7 +125,16 @@ export async function onboard(req,res) {
 
         }
         //todo update user in stream->fized 
-            
+        try {
+          await upsertStreamUser({
+            id: updatedUser._id.toString(),
+            name: updatedUser.fullName,
+            image: updatedUser.profilePic || "",
+          });
+          console.log("stream user updated");
+        } catch (error) {
+          console.log("error in updateing  stream user",error.message);
+        }
 
 
         return res.status(200).json({success:true, user:updatedUser});
