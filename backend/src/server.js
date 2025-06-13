@@ -8,10 +8,29 @@ import { connectDB } from "./lib/db.js";
 dotenv.config();
 const app = expres();
 const PORT = process.env.PORT;
+
+
+app.use(expres.json());
+
+app.use("/api/auth", authRoutes);
+
+
+
+
+
 app.listen(PORT, () => {
   console.log(`Server running at port ->${PORT}`);
   connectDB();
 
 });
 
-app.use("/api/auth", authRoutes);
+
+
+
+
+
+
+
+
+
+
