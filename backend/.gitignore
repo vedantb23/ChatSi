@@ -1,0 +1,7 @@
+node_modules/
+.env
+*.log
+.DS_Store
+.vscode/
+coverage/
+uploads/   # if your backend stores uploads
