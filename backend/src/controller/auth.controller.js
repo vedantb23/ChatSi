@@ -52,7 +52,24 @@ export async function signup(req, res) {
     }
 }
 export async  function login(req, res) {
-  res.send("login rout");
+  try {
+      const { email, password } = req.body;
+      if (!email || !password) {
+        return res.status(400).json({ message: "All Fields are required !" });
+      }
+
+      const user = await User.findOne({ email });
+      if (!user) {
+        return res.status(401).json({ message: "Invalid email or Password !" });
+      }
+
+      const isPasswordCorrect = await user.matchPassword(password);
+      if (!isPasswordCorrect) {
+        return res.status(401).json({ message: "Invalid  Password !" });
+      }
+  } catch (error) {
+    
+  }
 }
 export function logout(req, res) {
   res.send("logout rout");
