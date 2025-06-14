@@ -1,5 +1,6 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router";
+import { Routes, Route, Navigate } from "react-router-dom";
+
 import HomePage from "./pages/HomePage.jsx";
 import SignUpPage from "./pages/SignUpPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
@@ -18,7 +19,7 @@ const App = () => {
     isLoading,
     error,
   } = useQuery({
-    querykey: ["authUser"],
+    queryKey: ["authUser"],
     queryFn: async () => {
       const res = await axiosInstance.get("/auth/me");
       return res.data;
@@ -29,7 +30,8 @@ const App = () => {
   const authUser = authData?.user;
 
   return (
-    <div className="h-screen" data-theme="fantasy">
+    <div className="h-screen" data-theme="corporate">
+      {/* <div className="navbar bg-red-500">hi </div> */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         {/* <Route path="/" element={authUser?<HomePage />:<Navigate to="/login"} /> */}
