@@ -36,7 +36,7 @@ const LoginPage = () => {
   
   return (
     <div
-      className="h-screen flex justify-center items-center p- 
+      className="h-screen scale-90 flex justify-center items-center p- 
     sm:p-6 md:p-8 "
       data-theme="corporate"
     >

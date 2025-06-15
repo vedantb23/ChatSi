@@ -41,7 +41,7 @@ const SignUpPage = () => {
     <>
       <div
         className="h-full flex justify-center items-center p-6 
-    sm:p-6 md:p-8 "
+    sm:p-6 md:p-8 scale-90 "
         data-theme="corporate"
       >
         <div className="border border-primary/25 flex flex-col lg:flex-row w-full max-w-5xl mx-auto bg-base-100 rounded-xl shadow-lg overflow-hidden">
