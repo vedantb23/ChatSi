@@ -212,8 +212,8 @@ const SignUpPage = () => {
                   />
                 </div>
                 <p className="opacity-70">
-                  Seamless chatting, high-quality streaming, and a lounge where
-                  connections grow.
+                  Connect with friends, share moments, and stay in touch with
+                  your loved ones.
                 </p>
               </div>
             </div>
