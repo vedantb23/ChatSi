@@ -5,8 +5,10 @@ import toast from 'react-hot-toast';
 import { dividerClasses } from '@mui/material/Divider';
 import { Link } from 'react-router';
 import useLogin from '../hooks/useLogin.js';
+import { useThemeStore } from '../store/useThemeStore.js';
 
 const LoginPage = () => {
+  const { theme } = useThemeStore();
   const [loginData, setloginData] = useState({
   email:"",password:""
   })
@@ -38,7 +40,7 @@ const LoginPage = () => {
     <div
       className="h-screen scale-90 flex justify-center items-center p- 
     sm:p-6 md:p-8 "
-      data-theme="corporate"
+      data-theme={theme}
     >
       <div className="border border-primary/25 flex flex-col lg:flex-row w-full max-w-5xl mx-auto bg-base-100 rounded-xl shadow-xl overflow-hidden ">
         {/* login form left */}
@@ -134,11 +136,15 @@ const LoginPage = () => {
           <div className="max-w-md p-8">
             {/* Illustration */}
             <div className="relative aspect-square max-w-sm mx-auto">
-              <img
+              {/* <img
                 src="/chatting-3-unscreen.gif"
                 alt="Language connection illustration"
                 className="w-full h-full"
-              />
+              /> */}
+
+              <video width="600" muted loop autoPlay className='rounded-2xl'>
+                <source src="/extraallvideo/chatting-3.mp4" type="video/mp4" />
+              </video>
             </div>
 
             <div className="text-center space-y-3 mt-6">

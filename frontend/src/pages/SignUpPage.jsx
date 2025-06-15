@@ -6,6 +6,7 @@ import {useMutation, useQueryClient} from "@tanstack/react-query"
 import {axiosInstance} from "../lib/axios"
 import toast from "react-hot-toast";
 import { signup } from "../lib/api";
+import { useThemeStore } from "../store/useThemeStore";
 const SignUpPage = () => {
   const [signupData, setsignupData] = useState({
     fullName: "",
@@ -36,13 +37,14 @@ const SignUpPage = () => {
     e.preventDefault();
     signupMutation(signupData);
   };
+  const { theme } = useThemeStore();
 
   return (
     <>
       <div
         className="h-full flex justify-center items-center p-6 
     sm:p-6 md:p-8 scale-90 "
-        data-theme="corporate"
+        data-theme={theme}
       >
         <div className="border border-primary/25 flex flex-col lg:flex-row w-full max-w-5xl mx-auto bg-base-100 rounded-xl shadow-lg overflow-hidden">
           {/* sign up left  */}
