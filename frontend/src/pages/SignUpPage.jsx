@@ -120,7 +120,7 @@ const SignUpPage = () => {
 
                       <input
                         type="password"
-                        placeholder="password"
+                        placeholder="********"
                         className="input input-border w-full border-slate-400 rounded-xl"
                         value={signupData.password}
                         onChange={(e) => {
@@ -162,10 +162,14 @@ const SignUpPage = () => {
                     className="btn btn-primary w-full rounded-xl"
                     type="submit"
                   >
-                    {isPending ? (<>
-                    <span className="loading loading-spinner loading-md"></span>
-                    Creating Account...
-                    </>) : "Create Account"}
+                    {isPending ? (
+                      <>
+                        <span className="loading loading-spinner loading-md"></span>
+                        Creating Account...
+                      </>
+                    ) : (
+                      "Create Account"
+                    )}
                   </button>
 
                   <div className="text-center mt-4">
@@ -197,12 +201,19 @@ const SignUpPage = () => {
               </div>
 
               <div className="text-center space-y-3 mt-6">
-                <h2 className="text-xl font-semibold">
-                  More Than Chat — It’s an Experience
-                </h2>
+                <div className="flex flex-row justify-center items-center">
+                  <h2 className="text-xl font-semibold">
+                    More Than just a Chat — It’s an Experience
+                  </h2>
+                  <img
+                    src="/bird-hero-unscreen.gif"
+                    alt=""
+                    className="size-[100px]"
+                  />
+                </div>
                 <p className="opacity-70">
-                   Seamless chatting, high-quality
-                  streaming, and a lounge where connections grow.
+                  Seamless chatting, high-quality streaming, and a lounge where
+                  connections grow.
                 </p>
               </div>
             </div>

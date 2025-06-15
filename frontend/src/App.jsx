@@ -28,15 +28,36 @@ const App = () => {
         {/* <div className="navbar bg-red-500">hi </div> */}
         <Routes>
           {/* <Route path="/" element={<HomePage />} /> */}
-          <Route path="/" element={isAuthenticated  && isOnboarded?(<HomePage />):(<Navigate to={!isAuthenticated ? "/login" : "/onboarding"}/>)} />
+          <Route
+            path="/"
+            element={
+              isAuthenticated && isOnboarded ? (
+                <HomePage />
+              ) : (
+                <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
+              )
+            }
+          />
 
           <Route
             path="/signup"
-            element={!isAuthenticated ? <SignUpPage /> : <Navigate to="/" />}
+            element={
+              !isAuthenticated ? (
+                <SignUpPage />
+              ) : (
+                <Navigate to={isOnboarded ? "/" : "/onboarding"} />
+              )
+            }
           />
           <Route
             path="/login"
-            element={!isAuthenticated ? <LoginPage /> : <Navigate to="/" />}
+            element={
+              !isAuthenticated ? (
+                <LoginPage />
+              ) : (
+                <Navigate to={isOnboarded ? "/" : "/onboarding"} />
+              )
+            }
           />
           <Route
             path="/notifications"
@@ -57,7 +78,15 @@ const App = () => {
           <Route
             path="/onboarding"
             element={
-              isAuthenticated ? <OnboardingPage /> : <Navigate to="/login" />
+              isAuthenticated ? (
+                !isOnboarded ? (
+                  <OnboardingPage />
+                ) : (
+                  <Navigate to="/" />
+                )
+              ) : (
+                <Navigate to="/login" />
+              )
             }
           />
         </Routes>
