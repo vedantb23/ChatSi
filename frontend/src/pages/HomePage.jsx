@@ -11,7 +11,7 @@ import { Link } from "react-router";
 import { CheckCheckIcon, MapPinIcon, User2Icon, UserPlus2Icon } from "lucide-react";
 import FriendCard, { getLanguageFlag } from "../components/FriendCard";
 import NoFriendsFound from "../components/NoFriendsFound";
-import {capitialize} from "../lib/utils.js"
+import {capitialize} from "../lib/utils"
 const HomePage = () => {
   const queryClient = useQueryClient();
   const [outgoingReqquestIds, setoutgoingReqquestIds] = useState(new Set());
@@ -69,7 +69,7 @@ const HomePage = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 ">
             {friends.map((friend) => {
-              <FriendCard key={friend._id} friend={friend} />;
+              return (<FriendCard key={friend._id} friend={friend} />);
             })}
           </div>
         )}
