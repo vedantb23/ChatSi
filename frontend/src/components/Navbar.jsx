@@ -42,7 +42,7 @@ const Navbar = () => {
                 <span className="text-3xl  font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider">
                   ChatSi
                 </span>
-              </div>
+              </div>  
             )}
 
             <div className="flex items-center gap-3 sm:gap-4   ">
