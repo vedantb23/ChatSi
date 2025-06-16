@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, Link } from "react-router-dom";
 
 import HomePage from "./pages/HomePage.jsx";
 import SignUpPage from "./pages/SignUpPage.jsx";
@@ -14,17 +14,22 @@ import PageLoader from "./components/PageLoader.jsx";
 import useAuthUser from "./hooks/useAuthUser.js";
 import Layout from "./components/Layout.jsx";
 import { useThemeStore } from "./store/useThemeStore.js";
+import { useEffect } from "react";
 const App = () => {
   
   const { isLoading, authUser } = useAuthUser()
+  const { theme } = useThemeStore();
   
+  React.useEffect(() => {
+    document.querySelector("html").setAttribute("data-theme", theme);
+  }, [theme]);
   const isAuthenticated = Boolean(authUser);
   const isOnboarded = authUser?.isOnboarded
-  const { theme } = useThemeStore();
 
   if (isLoading) {
     return <PageLoader/>
   }
+
     return (
       <div className="h-screen" data-theme={theme}>
         {/* <div className="navbar bg-red-500">hi </div> */}
@@ -34,7 +39,7 @@ const App = () => {
             path="/"
             element={
               isAuthenticated && isOnboarded ? (
-                <Layout showSidebar={true} >
+                <Layout showSidebar={true}>
                   <HomePage />
                 </Layout>
               ) : (
@@ -66,7 +71,13 @@ const App = () => {
           <Route
             path="/notifications"
             element={
-              isAuthenticated ? <NotificationsPage /> : <Navigate to="/login" />
+              isAuthenticated && isOnboarded ? (
+                <Layout showSidebar={true}>
+                  <NotificationsPage />
+                </Layout>
+              ) : (
+                <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
+              )
             }
           />
           <Route
@@ -91,6 +102,27 @@ const App = () => {
               ) : (
                 <Navigate to="/login" />
               )
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <>
+                <div className="flex flex-col justify-center items-center gap-3  h-screen top-0">
+                  <div className="flex flex-col justify-center items-center  text-3xl font-bold">
+                    <img
+                      src="Under construction-amico.png"
+                      alt=""
+                      className="w-4/12"
+                    />
+                    Page Not Found or Under Construction
+                  </div>
+                  <h6 className="opacity-70">Conside Visiting Later !</h6>
+                  <h1 className="text-cyan-600 hover:scale-110 hover:underline transition-transform ease-in-out duration-200 ">
+                    <Link to="/">Navigate to Home</Link>
+                  </h1>
+                </div>
+              </>
             }
           />
         </Routes>

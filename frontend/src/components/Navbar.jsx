@@ -7,13 +7,12 @@ import toast from 'react-hot-toast';
 import { BellDotIcon, LogOutIcon } from 'lucide-react';
 import { ThemeProvider } from '@mui/material/styles';
 import ThemeSelector from './ThemeSelector';
-
 const Navbar = () => {
     const { authUser } = useAuthUser();
     const location = useLocation();
     const isChatPage = location.pathname?.startsWith("/chat");
     const queryClient = useQueryClient();
-    console.log(location);
+    // console.log(location);
     const { mutate: logoutMutation } = useMutation({
         mutationFn: logout,
         onSuccess: () => {

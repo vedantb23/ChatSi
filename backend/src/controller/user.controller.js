@@ -7,7 +7,7 @@ try {
     const currentUser = req.user;
 
     const recommendedUsers = await User.find({
-      $and: [{ _id: { $ne: currentUserId } }, { $id: { $nin: currentUserId.friends} },{isOnboarded:true}],
+      $and: [{ _id: { $ne: currentUserId } }, { _id: { $nin: currentUserId.friends} },{isOnboarded:true}],
     });
     res.status(200).json(recommendedUsers );
 } catch (error) {
@@ -48,7 +48,6 @@ export async function sendFriendRequest(req, res) {
         }
 
         const recipient = await User.findById(recipientId);
-            return res.status(400).json({ message: "You cannot be own friend" });
             if (!recipient) {
                 return res.status(400).json({ message: "recipient does not exist" });
         }
