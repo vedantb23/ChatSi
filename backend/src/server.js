@@ -21,7 +21,7 @@ app.get("/",(req,res) => {
 app.use(
   cors({
     //chanegchange
-    origin: ["http://localhost:5173", ""],
+    origin: ["http://localhost:5173", "https://chat-si-sigma.vercel.app"],
     credentials: true,
   })
 );
