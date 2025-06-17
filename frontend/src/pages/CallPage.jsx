@@ -53,7 +53,8 @@ const CallPage = () => {
         })
         const callInstance = videoClient.call("default", callId);
 
-        await callInstance.join({create:true})
+        await callInstance.join({ create: true });
+        await callInstance.camera.disable();
         
 setclient(videoClient)
 setcall(callInstance)

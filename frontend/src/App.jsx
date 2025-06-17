@@ -15,6 +15,7 @@ import useAuthUser from "./hooks/useAuthUser.js";
 import Layout from "./components/Layout.jsx";
 import { useThemeStore } from "./store/useThemeStore.js";
 import { useEffect } from "react";
+import MyFriendsPage from "./pages/MyFriendsPage.jsx";
 const App = () => {
   
   const { isLoading, authUser } = useAuthUser()
@@ -117,6 +118,18 @@ const App = () => {
                 )
               ) : (
                 <Navigate to="/login" />
+              )
+            }
+          />
+          <Route
+            path="/friends"
+            element={
+              isAuthenticated && isOnboarded ? (
+                <Layout showSidebar={true}>
+                  <MyFriendsPage />
+                </Layout>
+              ) : (
+                <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
               )
             }
           />
