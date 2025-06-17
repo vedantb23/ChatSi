@@ -37,3 +37,18 @@
 .str-chat__message-input {
   border-top: 1px solid #ddd;
 }
+
+
+.react-calendar {
+  border: none;
+}
+.react-calendar__tile--active {
+  background: #8A2BE2 !important;
+  color: #fff !important;
+  border-radius: 0.5rem;
+}
+.react-calendar__navigation button {
+  color: #8A2BE2;
+  font-weight: bold;
+}
+

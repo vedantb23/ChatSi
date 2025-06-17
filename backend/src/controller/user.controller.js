@@ -162,3 +162,17 @@ try {
 }
 
 }
+
+export async function getme(req,res) {
+  try {
+    const currentUserId = req.user.id;
+    const currentUser = await User.findById(currentUserId).select("-password");
+    
+    res.status(200).json(currentUser)
+
+    
+  } catch (error) {
+    res.status(400).json({ message: "user fetch error" });
+    console.log(error)    
+  }
+}

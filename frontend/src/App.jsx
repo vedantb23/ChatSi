@@ -16,6 +16,8 @@ import Layout from "./components/Layout.jsx";
 import { useThemeStore } from "./store/useThemeStore.js";
 import { useEffect } from "react";
 import MyFriendsPage from "./pages/MyFriendsPage.jsx";
+import OpenHomePage from "./pages/OpenHomePage.jsx";
+import MyProfile from "./components/MyProfile.jsx";
 const App = () => {
   
   const { isLoading, authUser } = useAuthUser()
@@ -36,6 +38,7 @@ const App = () => {
         {/* <div className="navbar bg-red-500">hi </div> */}
         <Routes>
           {/* <Route path="/" element={<HomePage />} /> */}
+          <Route path="/openhomepage" element={<OpenHomePage />} />
           <Route
             path="/"
             element={
@@ -48,7 +51,6 @@ const App = () => {
               )
             }
           />
-
           <Route
             path="/signup"
             element={
@@ -127,6 +129,19 @@ const App = () => {
               isAuthenticated && isOnboarded ? (
                 <Layout showSidebar={true}>
                   <MyFriendsPage />
+                </Layout>
+              ) : (
+                <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
+              )
+            }
+          />
+
+          <Route
+            path="/profile/me"
+            element={
+              isAuthenticated && isOnboarded ? (
+                <Layout showSidebar={true}>
+                  <MyProfile />
                 </Layout>
               ) : (
                 <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />

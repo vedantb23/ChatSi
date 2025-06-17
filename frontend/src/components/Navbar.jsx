@@ -65,15 +65,17 @@ const Navbar = () => {
             {/* todo */}
             <ThemeSelector />
 
-            <div className="tooltip tooltip-bottom" data-tip="Thats You">
+            <div className="tooltip tooltip-bottom" data-tip="Visit your Profile">
               <div className="avatar">
                 <div className="w-9 rounded-full  ">
+                  <Link to="/profile/me" >
                   <img
                     src={authUser?.profilePic}
                     alt="User Avatar"
                     className="border border-transparent hover:border-black rounded-full"
                     rel="noreferrer"
                   />
+                  </Link>
                 </div>
               </div>
             </div>

@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router";
 import useAuthUser from "../hooks/useAuthUser";
-import { BellElectricIcon, BellIcon, HomeIcon, User2Icon, UserCircle2Icon } from "lucide-react";
+import { BellElectricIcon, BellIcon, HomeIcon, User2, User2Icon, UserCircle2Icon, Users } from "lucide-react";
 
 const Sidebar = () => {
 
@@ -42,7 +42,7 @@ const Sidebar = () => {
               currentPath === "/friends" ? "btn-active" : ""
             }`}
           >
-            <User2Icon className="size-5 text-base-content opacity-70" />
+            <Users className="size-5 text-base-content opacity-70" />
             <span>Friends</span>
           </Link>
           <Link
@@ -54,6 +54,16 @@ const Sidebar = () => {
             <BellIcon className="size-5 text-base-content opacity-70" />
             <span>Notifications</span>
           </Link>
+
+          <Link
+            to="/profile/me"
+            className={`btn btn-ghost rounded-md justify-start w-full gap-3 px-3 normal-case ${
+              currentPath === "/profile/me" ? "btn-active" : ""
+            }`}
+          >
+            <User2 className="size-5 text-base-content opacity-70" />
+            <span>My Profile</span>
+          </Link>
         </nav>
 
         {/* user profile section */}
@@ -62,11 +72,13 @@ const Sidebar = () => {
             <div className="tooltip tooltip-top" data-tip="Thats You">
               <div className="avatar">
                 <div className="w-12 rounded-full">
+                  <Link to="/profile/me">
                   <img
                     src={authUser?.profilePic}
                     alt="User Avatar"
                     rel="noreferrer"
-                  />
+                    />
+                    </Link>
                 </div>
               </div>
             </div>
