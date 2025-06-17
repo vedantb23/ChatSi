@@ -14,7 +14,7 @@ const ThemeSelector = () => {
           className="tooltip tooltip-bottom"
           data-tip="Choose Your own custom Theme !"
         >
-          <button tabIndex={0} className="btn btn-ghost btn-circle">
+          <button tabIndex={0} className="btn btn-ghost btn-circle opacity-70">
             <PaletteIcon className="size-5" />
           </button>
         </div>

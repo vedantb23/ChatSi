@@ -11,6 +11,7 @@ const Navbar = () => {
     const { authUser } = useAuthUser();
     const location = useLocation();
     const isChatPage = location.pathname?.startsWith("/chat");
+    const isCallPage = location.pathname?.startsWith("/call");
     const queryClient = useQueryClient();
     // console.log(location);
     const { mutate: logoutMutation } = useMutation({
@@ -31,17 +32,19 @@ const Navbar = () => {
           <div className="flex items-center gap-3 justify-end w-full">
             {/* logo only i hcat paeg
              */}
-            {isChatPage && (
+            {(isChatPage || isCallPage) && (
               <div className="mb-4 flex items-center justify-center gap-2 ">
                 <img
                   src="/logo-bh-white-unscreen.gif"
                   alt="Logo animation"
                   className="text-primary w-[85px]  "
                 />
-                <span className="text-3xl  font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider">
-                  ChatSi
-                </span>
-              </div>  
+                <Link to="/">
+                  <span className="text-3xl  font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider">
+                    ChatSi
+                  </span>
+                </Link>
+              </div>
             )}
 
             <div className="flex items-center gap-3 sm:gap-4  ml-auto ">
@@ -60,17 +63,18 @@ const Navbar = () => {
             {/* todo */}
             <ThemeSelector />
 
-                <div className="tooltip tooltip-bottom" data-tip="Thats You">
-                    <div className="avatar">
-                    <div className="w-9 rounded-full">
+            <div className="tooltip tooltip-bottom" data-tip="Thats You">
+              <div className="avatar">
+                <div className="w-9 rounded-full  ">
                   <img
                     src={authUser?.profilePic}
                     alt="User Avatar"
+                    className="border border-transparent hover:border-black rounded-full"
                     rel="noreferrer"
                   />
-                    </div>
-                     </div>
-                 </div>
+                </div>
+              </div>
+            </div>
 
             {/* logout */}
             <div className="tooltip tooltip-bottom" data-tip="Logout">
