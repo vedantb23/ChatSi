@@ -18,11 +18,13 @@ app.get("/",(req,res) => {
 )
 
 
-app.use(cors({
-  //chanegchange
-  origin: "http://localhost:5173",
-  credentials:true
-}))
+app.use(
+  cors({
+    //chanegchange
+    origin: ["http://localhost:5173", ""],
+    credentials: true,
+  })
+);
 app.use(expres.json());
 app.use(cookieParser());
 
