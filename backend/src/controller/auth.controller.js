@@ -99,7 +99,8 @@ export async  function login(req, res) {
   }
 }
 export function logout(req, res) {
-    res.clearCookie("jwt");
+    res.clearCookie("jwt",{  sameSite: "none",
+      secure: true});
     res.status(200).json({sucess:true, message: "Logout Sucessfull !" });
 }
 
