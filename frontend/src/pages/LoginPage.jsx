@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { login } from '../lib/api';
 import toast from 'react-hot-toast';
 import { dividerClasses } from '@mui/material/Divider';
-import { Link } from 'react-router';
+import { Link, Navigate, useNavigate } from 'react-router';
 import useLogin from '../hooks/useLogin.js';
 import { useThemeStore } from '../store/useThemeStore.js';
 
@@ -12,13 +12,14 @@ const LoginPage = () => {
   const [loginData, setloginData] = useState({
   email:"",password:""
   })
-  
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const { mutate: loginMutation, isPending, error } = useMutation({
     mutationFn: login,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["authUser"] }),
-        toast.success("Login Done !")
+        toast.success("Login Done !");
+        navigate("/");
     },
     onError:  (e) => {
       toast.error(
