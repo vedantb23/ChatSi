@@ -68,7 +68,7 @@ const DynamicChatNavbar = () => {
                   >
                     <li>
                       <Link
-                        to="/"
+                        to="/login"
                         className="block px-4 py-2 hover:bg-blue-500/20"
                       >
                         🇺🇸 English Practice
@@ -76,7 +76,7 @@ const DynamicChatNavbar = () => {
                     </li>
                     <li>
                       <Link
-                        to="/"
+                        to="/login"
                         className="block px-4 py-2 hover:bg-blue-500/20"
                       >
                         🇯🇵 Japanese Corner
@@ -84,7 +84,7 @@ const DynamicChatNavbar = () => {
                     </li>
                     <li>
                       <Link
-                        to="/"
+                        to="/login"
                         className="block px-4 py-2 hover:bg-blue-500/20"
                       >
                         🇩🇪 German Learners
@@ -110,7 +110,7 @@ const DynamicChatNavbar = () => {
                   >
                     <li>
                       <Link
-                        to="/"
+                        to="/login"
                         className="block px-4 py-2 hover:bg-green-500/20"
                       >
                         Friend Requests
@@ -118,7 +118,7 @@ const DynamicChatNavbar = () => {
                     </li>
                     <li>
                       <Link
-                        to="/"
+                        to="/login"
                         className="block px-4 py-2 hover:bg-green-500/20"
                       >
                         My Friends
@@ -126,7 +126,7 @@ const DynamicChatNavbar = () => {
                     </li>
                     <li>
                       <Link
-                        to="/"
+                        to="/login"
                         className="block px-4 py-2 hover:bg-green-500/20"
                       >
                         Find New People
@@ -152,7 +152,7 @@ const DynamicChatNavbar = () => {
                   >
                     <li>
                       <Link
-                        to="/"
+                        to="/login"
                         className="block px-4 py-2 hover:bg-yellow-500/20"
                       >
                         Courses
@@ -160,7 +160,7 @@ const DynamicChatNavbar = () => {
                     </li>
                     <li>
                       <Link
-                        to="/"
+                        to="/login"
                         className="block px-4 py-2 hover:bg-yellow-500/20"
                       >
                         Flashcards
@@ -168,7 +168,7 @@ const DynamicChatNavbar = () => {
                     </li>
                     <li>
                       <Link
-                        to="/"
+                        to="/login"
                         className="block px-4 py-2 hover:bg-yellow-500/20"
                       >
                         Speaking Practice
@@ -193,7 +193,7 @@ const DynamicChatNavbar = () => {
                   <input
                     type="text"
                     placeholder="Search..."
-                    className="input input-sm bg-transparent border border-gray-600/30 rounded-lg w-32 focus:w-48 transition-all duration-300 text-gray-200 placeholder-gray-400 focus:border-blue-400 h-10 pr-10"
+                    className="input input-sm bg-transparent border border-gray-600 rounded-lg w-32 focus:w-48 transition-all duration-300 text-gray-200 placeholder-gray-400 focus:border-blue-400 h-10 pr-10"
                   />
                   <button className="absolute right-2 top-1/2 transform -translate-y-1/2">
                     <i className="fas fa-search text-blue-400 text-sm" />
@@ -202,11 +202,11 @@ const DynamicChatNavbar = () => {
               </div>
 
               {/* Login Button */}
-                <Link to="/login">
-              <button className="btn btn-active btn-primary btn-sm rounded-lg scale-110 hover:scale-125">
+              <Link to="/login">
+                <button className="btn btn-active btn-primary btn-sm rounded-lg scale-110 hover:scale-125">
                   Login
-              </button>
-                </Link>
+                </button>
+              </Link>
             </div>
           </div>
         </div>

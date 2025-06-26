@@ -34,11 +34,21 @@ const App = () => {
   }
 
     return (
-      <div className="h-screen" data-theme={theme}>
+      <div className="h-screen " data-theme={theme}>
         {/* <div className="navbar bg-red-500">hi </div> */}
         <Routes>
           {/* <Route path="/" element={<OpenHomePage />} /> */}
-          <Route path="/openhomepage" element={<OpenHomePage />} />
+          <Route
+            path="/openhomepage"
+            element={
+              isAuthenticated && isOnboarded ? (
+                <Navigate to="/" />
+              ) : (
+                <OpenHomePage />
+              )
+            }
+          />
+
           <Route
             path="/"
             element={
@@ -47,7 +57,9 @@ const App = () => {
                   <HomePage />
                 </Layout>
               ) : (
-                <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
+                <Navigate
+                  to={!isAuthenticated ? "/openhomepage" : "/onboarding"}
+                />
               )
             }
           />

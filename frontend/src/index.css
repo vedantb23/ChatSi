@@ -52,3 +52,29 @@
   font-weight: bold;
 }
 
+/* Restore scrollbars globally */
+
+/* index.css or App.css */
+[data-theme] {
+  scrollbar-width: thick;
+  scrollbar-color: #b300ff #0f183d;
+}
+
+[data-theme]::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+[data-theme]::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+[data-theme]::-webkit-scrollbar-thumb {
+  background-color: #b300ff;
+  border-radius: 10px;
+  border: 2px solid #1a1a1a;
+}
+
+[data-theme]::-webkit-scrollbar-thumb:hover {
+  background-color: #b700ff;
+}
