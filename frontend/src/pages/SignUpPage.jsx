@@ -50,6 +50,7 @@ const SignUpPage = () => {
           {/* sign up left  */}
           <div className="w-full lg:w-1/2 p-4 sm:p-8 flex flex-col">
             {/* logo */}
+            <Link to="/openhomepage">
             <div className="mb-4 flex items-center justify-center gap-2 ">
               <img
                 src="/logo-bh-white-unscreen.gif"
@@ -60,6 +61,7 @@ const SignUpPage = () => {
                 ChatSi
               </span>
             </div>
+            </Link>
 
             {/*
              */}

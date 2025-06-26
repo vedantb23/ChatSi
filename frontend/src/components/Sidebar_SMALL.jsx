@@ -14,14 +14,18 @@ const Side = () => {
         <div className="p-3 border-b border-base-300 ">
           <Link to="/" className="flex items-center gap-2.5">
             <div className="mb-4 flex items-center justify-center gap-2 ">
+              <Link to="/openhomepage">
               <img
                 src="/logo-bh-white-unscreen.gif"
                 alt="Logo animation"
                 className="text-primary w-[85px]  "
               />
+              </Link>
+              <Link to="/openhomepage">
               <span className="text-3xl  font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider">
                 ChatSi
               </span>
+              </Link>
             </div>
           </Link>
         </div>

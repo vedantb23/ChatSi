@@ -13,7 +13,9 @@ const Sidebar = () => {
         {/* // <aside className="w-64 bg-base-200 border-r border-base-300 flex flex-col h-screen sticky top-0"> */}
         <div className="p-3 border-b border-base-300 ">
           <Link to="/openhomepage" className="flex items-center gap-2.5">
+          
             <div className="mb-4 flex items-center justify-center gap-2 ">
+
               <img
                 src="/logo-bh-white-unscreen.gif"
                 alt="Logo animation"

@@ -191,10 +191,12 @@ const OpenHomePage = () => {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-                  <button className="btn btn-lg bg-gradient-to-r from-purple-600 to-pink-600 border-none text-white hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-300 shadow-2xl">
-                    <Download className="w-5 h-5 mr-2" />
-                    <Link to="/signup">Start Chatting Free/Login</Link>
-                  </button>
+                  <Link to="/signup">
+                    <button className="btn btn-lg bg-gradient-to-r from-purple-600 to-pink-600 border-none text-white hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-300 shadow-2xl">
+                      <Download className="w-5 h-5 mr-2" />
+                      Start Chatting Free/Login
+                    </button>
+                  </Link>
                   <button className="btn btn-lg btn-outline border-purple-400 text-purple-300 hover:bg-purple-600 hover:border-purple-600 transform hover:scale-105 transition-all duration-300">
                     <Github className="w-5 h-5 mr-2" />
                     <a

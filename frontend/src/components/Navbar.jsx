@@ -1,6 +1,6 @@
 import React from 'react'
 import useAuthUser from '../hooks/useAuthUser';
-import { Link, useLocation } from 'react-router';
+import { Link, Navigate, useLocation } from 'react-router';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { logout } from '../lib/api';
 import toast from 'react-hot-toast';
@@ -27,6 +27,7 @@ const Navbar = () => {
       toast.success(
         "Logout done! Thanks for sharing your time with us — see you again! "
       );
+      navigate("/openhomepage");
     },
   });
   const showcustomsidebar=() => {
@@ -41,14 +42,14 @@ const Navbar = () => {
            */}
           {(isChatPage || isCallPage) && (
             <div className="mb-4 flex items-center justify-center gap-2 ">
-              <Link to="/">
+              <Link to="/openhomepage">
                 <img
                   src="/logo-bh-white-unscreen.gif"
                   alt="Logo animation"
                   className="text-primary w-[85px]  "
                 />
               </Link>
-              <Link to="/">
+              <Link to="/openhomepage">
                 <span className="text-3xl  font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider">
                   ChatSi
                 </span>

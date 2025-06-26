@@ -36,14 +36,14 @@ const DynamicChatNavbar = () => {
           <div className="flex items-center justify-between items-center h-16 text-gray-200">
             {/* Logo */}
             <div className="mb-2 flex items-center justify-center gap-2 ">
-              <Link to="/">
+              <Link to="/openhomepage">
                 <img
                   src="/logo-bh-white-unscreen.gif"
                   alt="Logo animation"
                   className="text-primary w-[85px]  "
                 />
               </Link>
-              <Link to="/">
+              <Link to="/openhomepage">
                 <span className="text-3xl  font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider">
                   ChatSi
                 </span>
@@ -202,9 +202,11 @@ const DynamicChatNavbar = () => {
               </div>
 
               {/* Login Button */}
+                <Link to="/login">
               <button className="btn btn-active btn-primary btn-sm rounded-lg scale-110 hover:scale-125">
-                <Link to="/login">Login</Link>
+                  Login
               </button>
+                </Link>
             </div>
           </div>
         </div>
