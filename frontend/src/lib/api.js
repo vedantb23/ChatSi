@@ -1,5 +1,5 @@
 import { axiosInstance } from "./axios";
-
+import axios from "axios";
 export const signup = async  (signupData) => {
   const response = await axiosInstance.post("/auth/signup", signupData);
   return response.data;
@@ -74,4 +74,13 @@ export async function getStreamToken() {
 export const getMyProfile = async () => {
   const res = await axiosInstance.get("/users/me");
   return res.data;
+};
+
+
+export const googleLogin = async (credential) => {
+  const { data } = await axios.post(
+    "http://localhost:5001/api/auth/google/callback",
+    { credential }
+  );
+  return data;
 };

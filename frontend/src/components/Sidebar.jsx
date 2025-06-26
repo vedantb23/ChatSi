@@ -10,8 +10,9 @@ const Sidebar = () => {
 
     return (
       <aside className="w-64 bg-base-200 border-r border-base-300 hidden lg:flex flex-col h-screen sticky top-0">
+        {/* // <aside className="w-64 bg-base-200 border-r border-base-300 flex flex-col h-screen sticky top-0"> */}
         <div className="p-3 border-b border-base-300 ">
-          <Link to="/" className="flex items-center gap-2.5">
+          <Link to="/openhomepage" className="flex items-center gap-2.5">
             <div className="mb-4 flex items-center justify-center gap-2 ">
               <img
                 src="/logo-bh-white-unscreen.gif"
@@ -73,12 +74,12 @@ const Sidebar = () => {
               <div className="avatar">
                 <div className="w-12 rounded-full">
                   <Link to="/profile/me">
-                  <img
-                    src={authUser?.profilePic}
-                    alt="User Avatar"
-                    rel="noreferrer"
+                    <img
+                      src={authUser?.profilePic}
+                      alt="User Avatar"
+                      rel="noreferrer"
                     />
-                    </Link>
+                  </Link>
                 </div>
               </div>
             </div>

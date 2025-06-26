@@ -1,42 +1,57 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import React, { useState } from 'react'
-import { login } from '../lib/api';
-import toast from 'react-hot-toast';
-import { dividerClasses } from '@mui/material/Divider';
-import { Link, Navigate, useNavigate } from 'react-router';
-import useLogin from '../hooks/useLogin.js';
-import { useThemeStore } from '../store/useThemeStore.js';
-
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import React, { useState } from "react";
+import { googleLogin, login } from "../lib/api";
+import toast from "react-hot-toast";
+import { dividerClasses } from "@mui/material/Divider";
+import { Link, Navigate, useNavigate } from "react-router";
+import useLogin from "../hooks/useLogin.js";
+import { useThemeStore } from "../store/useThemeStore.js";
+import { GoogleLogin } from "@react-oauth/google";
 const LoginPage = () => {
   const { theme } = useThemeStore();
   const [loginData, setloginData] = useState({
-  email:"",password:""
-  })
+    email: "",
+    password: "",
+  });
   const navigate = useNavigate();
   const queryClient = useQueryClient();
-  const { mutate: loginMutation, isPending, error } = useMutation({
+  const {
+    mutate: loginMutation,
+    isPending,
+    error,
+  } = useMutation({
     mutationFn: login,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["authUser"] }),
         toast.success("Login Done !");
-        navigate("/");
+      navigate("/");
     },
-    onError:  (e) => {
+    onError: (e) => {
+      toast.error(e.response?.data?.message || e.message || "Login failed");
+    },
+  });
+  // const { loginMutation, isPending, error } = useLogin();
+  const { mutate: googleLoginMutation } = useMutation({
+    mutationFn: googleLogin, // You'll create this API function in lib/api.js
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["authUser"] });
+      toast.success("Google Login Done!");
+      console.log("Google credential response:", credentialResponse);
+
+      navigate("/");
+    },
+    onError: (e) => {
       toast.error(
-        e.response?.data?.message || e.message || "Login failed"
+        e.response?.data?.message || e.message || "Google Login failed"
       );
-    }
-    
-  })
-// const { loginMutation, isPending, error } = useLogin();
+    },
+  });
 
-
-  const handleLogin=(e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     loginMutation(loginData);
-    
-  }
-  
+  };
+
   return (
     <div
       className="h-screen scale-90 flex justify-center items-center p- 
@@ -84,7 +99,6 @@ const LoginPage = () => {
                       required
                     />
                   </div>
-
                   <div className="form-control w-full space-y-2">
                     <label className="label">
                       <span className="label-text">Password</span>
@@ -113,8 +127,21 @@ const LoginPage = () => {
                     ) : (
                       "Sign In"
                     )}
-                  </button>
-
+                  </button>{" "}
+                  {/* <div className="mt-4 w-full flex justify-center">
+                    <GoogleLogin
+                      onSuccess={(credentialResponse) => {
+                        if (credentialResponse.credential) {
+                          googleLoginMutation(credentialResponse.credential);
+                        } else {
+                          toast.error("No credential received from Google");
+                        }
+                      }}
+                      onError={() => {
+                        toast.error("Google login failed");
+                      }}
+                    />
+                  </div> */}
                   <div className="text-center mt-4">
                     <p className="text-sm">
                       Don't have an account?{" "}
@@ -143,7 +170,7 @@ const LoginPage = () => {
                 className="w-full h-full"
               /> */}
 
-              <video width="600" muted loop autoPlay className='rounded-2xl'>
+              <video width="600" muted loop autoPlay className="rounded-2xl">
                 <source src="/extraallvideo/chatting-3.mp4" type="video/mp4" />
               </video>
             </div>
@@ -170,6 +197,6 @@ const LoginPage = () => {
       </div>
     </div>
   );
-}
+};
 
-export default LoginPage
+export default LoginPage;

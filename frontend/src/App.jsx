@@ -37,7 +37,7 @@ const App = () => {
       <div className="h-screen" data-theme={theme}>
         {/* <div className="navbar bg-red-500">hi </div> */}
         <Routes>
-          {/* <Route path="/" element={<HomePage />} /> */}
+          {/* <Route path="/" element={<OpenHomePage />} /> */}
           <Route path="/openhomepage" element={<OpenHomePage />} />
           <Route
             path="/"

@@ -91,25 +91,23 @@ const ChatPage = () => {
   }
   
   return (
-    <div className="h-[93vh] relative">
+    <div className="h-[84vh] relative  overflow-hidden ">
       <ParticleBackground />
-
-      <Chat client={chatClient} theme="messaging dark">
-        <Channel channel={channel}>
-          <div className="w-full  relative">
-            <CallButton
-              handleVideoCall={handleVideoCall}
-              
-            />
-            <Window>
-              <ChannelHeader />
-              <MessageList />
-              <MessageInput focus />
-            </Window>
-          </div>
-          <Thread />
-        </Channel>
-      </Chat>
+      <div className=" m-5 h-screen w-full mx-auto mt-5 overflow-hidden">
+        <Chat client={chatClient} theme="messaging dark">
+          <Channel channel={channel}>
+            <div className="w-full  relative">
+              <CallButton handleVideoCall={handleVideoCall} />
+              <Window>
+                <ChannelHeader />
+                <MessageList />
+                <MessageInput focus />
+              </Window>
+            </div>
+            <Thread />
+          </Channel>
+        </Chat>
+      </div>
     </div>
   );
 }
