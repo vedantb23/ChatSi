@@ -7,20 +7,20 @@ const DynamicChatNavbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
-      setIsScrolled(scrollTop > 50);
+    //   const scrollTop =
+    //     window.pageYOffset || document.documentElement.scrollTop;
+    //   setIsScrolled(scrollTop > 50);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    // window.addEventListener("scroll", handleScroll);
+    // return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const toggleDropdown = (name) => {
-    setOpenDropdown((prev) => (prev === name ? null : name));
+    // setOpenDropdown((prev) => (prev === name ? null : name));
   };
 
   const closeDropdowns = () => {
-    setOpenDropdown(null);
+    // setOpenDropdown(null);
   };
 
   return (
@@ -51,140 +51,7 @@ const DynamicChatNavbar = () => {
             </div>
 
             {/* Center Navigation */}
-            <div className="hidden md:flex items-center space-x-1">
-              {/* Public Chats */}
-              <div className="relative">
-                <button
-                  onClick={() => toggleDropdown("public")}
-                  className="btn btn-ghost btn-sm h-10 rounded-lg hover:bg-blue-500/20 text-sm px-3"
-                >
-                  <i className="fas fa-comments text-blue-400 mr-1" />
-                  Public Rooms
-                </button>
-                {openDropdown === "public" && (
-                  <ul
-                    className="absolute top-full mt-2 w-48 bg-gray-800/90 backdrop-blur-md rounded-lg border border-gray-700 shadow-lg z-50"
-                    onMouseLeave={closeDropdowns}
-                  >
-                    <li>
-                      <Link
-                        to="/login"
-                        className="block px-4 py-2 hover:bg-blue-500/20"
-                      >
-                        🇺🇸 English Practice
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/login"
-                        className="block px-4 py-2 hover:bg-blue-500/20"
-                      >
-                        🇯🇵 Japanese Corner
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/login"
-                        className="block px-4 py-2 hover:bg-blue-500/20"
-                      >
-                        🇩🇪 German Learners
-                      </Link>
-                    </li>
-                  </ul>
-                )}
-              </div>
-
-              {/* Friends */}
-              <div className="relative">
-                <button
-                  onClick={() => toggleDropdown("friends")}
-                  className="btn btn-ghost btn-sm h-10 rounded-lg hover:bg-green-500/20 text-sm px-3"
-                >
-                  <i className="fas fa-user-friends text-green-400 mr-1" />
-                  Friends
-                </button>
-                {openDropdown === "friends" && (
-                  <ul
-                    className="absolute top-full mt-2 w-48 bg-gray-800/90 backdrop-blur-md rounded-lg border border-gray-700 shadow-lg z-50"
-                    onMouseLeave={closeDropdowns}
-                  >
-                    <li>
-                      <Link
-                        to="/login"
-                        className="block px-4 py-2 hover:bg-green-500/20"
-                      >
-                        Friend Requests
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/login"
-                        className="block px-4 py-2 hover:bg-green-500/20"
-                      >
-                        My Friends
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/login"
-                        className="block px-4 py-2 hover:bg-green-500/20"
-                      >
-                        Find New People
-                      </Link>
-                    </li>
-                  </ul>
-                )}
-              </div>
-
-              {/* Learn */}
-              <div className="relative">
-                <button
-                  onClick={() => toggleDropdown("learn")}
-                  className="btn btn-ghost btn-sm h-10 rounded-lg hover:bg-yellow-500/20 text-sm px-3"
-                >
-                  <i className="fas fa-book-open text-yellow-300 mr-1" />
-                  Learn
-                </button>
-                {openDropdown === "learn" && (
-                  <ul
-                    className="absolute top-full mt-2 w-48 bg-gray-800/90 backdrop-blur-md rounded-lg border border-gray-700 shadow-lg z-50"
-                    onMouseLeave={closeDropdowns}
-                  >
-                    <li>
-                      <Link
-                        to="/login"
-                        className="block px-4 py-2 hover:bg-yellow-500/20"
-                      >
-                        Courses
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/login"
-                        className="block px-4 py-2 hover:bg-yellow-500/20"
-                      >
-                        Flashcards
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/login"
-                        className="block px-4 py-2 hover:bg-yellow-500/20"
-                      >
-                        Speaking Practice
-                      </Link>
-                    </li>
-                  </ul>
-                )}
-              </div>
-
-              {/* Discover */}
-              <button className="btn btn-ghost btn-sm h-10 rounded-lg hover:bg-emerald-500/20 text-sm px-3">
-                <i className="fas fa-compass text-emerald-400 mr-1" />
-                Discover
-              </button>
-            </div>
-
+           
             {/* Right Side */}
             <div className="flex items-center space-x-3">
               {/* Search */}
